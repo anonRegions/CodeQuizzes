@@ -13,5 +13,7 @@ function run(number) {
     //Calls fact(), passing number to be processed;
     //Converts returned value to int via parseInt();
     //Passes result to alert().
-    alert(fact(parseInt(number, 10)));
+    console.log(fact(parseInt(number, 10)));
 }
+var x = 8;
+console.log(fact(x));

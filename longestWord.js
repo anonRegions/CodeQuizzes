@@ -1,6 +1,6 @@
 // Created by Ethan on 11/18/2014.
 function longestWord(sen) {
-    // Divide string into individual words, copying each to array (?)
+    // Divide string into individual words, copying each to array
     var str = sen.split(' ');
     var longest = 0;
     var word = null;
