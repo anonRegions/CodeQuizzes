@@ -6,14 +6,19 @@
  * 9:00am-10:00am then the output should be 60. If str is
  * 1:00pm-11:00am the output should be 1320.     */
 function CountingMinutes1(str) {
-    var time = str.match(/(\d+)\:(\d+)\w+-(\d+)\:(\d+)\w+/);
-    //NEED TO TEST IF AM OR PM; CODE BELOW IS FOR ONE OR THE OTHER
+    var time = str.match(/(\d+)\:(\d+)(\w+)-(\d+)\:(\d+)(\w+)/);
     var timeOneHrs = time[1] * 60;
     var timeOneMin = time[2];
-    var timeTwoHrs = time[3] * 60;
-    var timeTwoMin = time[4];
+    var timeTwoHrs = time[4] * 60;
+    var timeTwoMin = time[5];
+    if (time[6] === "pm") timeTwoHrs += 720;
+    if (time[3] === "pm") {
+        timeOneHrs += 720;
+        timeTwoHrs += 1440;
+    }
+
     return (timeTwoHrs-timeOneHrs) + (timeTwoMin-timeOneMin);
 }
-
-var str = "9:00am-10:00am";
+var str = "1:00pm-11:00am";
+//var str = "9:00am-10:00pm";
 console.log(CountingMinutes1(str));
